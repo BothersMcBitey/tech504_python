@@ -128,14 +128,26 @@ def part_two():
 
     print("Hello there.")
     for course in menu:
-        print(f"Please choose a {course}:")
-        for x in menu[course]:
-            print("\t", x["name"].capitalize(), f"\t£{x["price"]:.2f}")
-        selection = input("Enter choice: ").capitalize()
-        while not is_on_menu(selection, menu[course]):
-            selection = input("Invalid selection. Enter choice: ").capitalize()
-        customer_order_list.extend(
-            [i for i in menu[course] if i["name"].capitalize() == selection])
+        order_done = False
+        while not order_done:
+            print(f"Please choose a {course}:")
+            for x in menu[course]:
+                print("\t", x["name"].capitalize(), f"\t£{x["price"]:.2f}")
+            selection = input("Enter choice: ").capitalize()
+            while not is_on_menu(selection, menu[course]):
+                selection = input("Invalid selection. Enter choice: ").capitalize()
+            customer_order_list.extend(
+                [i for i in menu[course] if i["name"].capitalize() == selection])
+
+            response = ""
+            response_valid = False
+            while not response_valid:
+                response = input(f"Would you like any more {course}s? (y/n)\n").lower()
+                if response == "y":
+                    response_valid = True
+                if response == "n":
+                    response_valid = True
+                    order_done = True
 
     print("Your bill is:")
     total_cost = 0.0
@@ -193,6 +205,6 @@ def part_four():
 # definitely NOT __main__
 #===============================================================================
 #part_one()
-#part_two()
+part_two()
 #part_three()
-part_four()
+#part_four()
