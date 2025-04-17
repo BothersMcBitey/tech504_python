@@ -158,10 +158,9 @@ def part_three():
         out = ''
         for t in triggers: out += t(i)
         if out != '':
-            print(out, end='')
+            print(out)
         else:
-            print(i, end='')
-        print()
+            print(i)
 
 #===============================================================================
 #  Improve the movie rating meanings with user prompting
