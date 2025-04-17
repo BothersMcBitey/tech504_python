@@ -1,5 +1,7 @@
 # Learning Markdown 101
 
+![a picture](Learn_Markdown/img/eat_the_rich.jpg)
+
 ## Part 1: Decoration
 
 *italics*
@@ -32,8 +34,6 @@ __also bold__
 1. numbers are flexible
 
 ## Part 3: Embedding
-
-![a picture](Learn_Markdown/img/eat_the_rich.jpg)
 
 Where do you want to go? <br>
 [back to part 2](#part-2-structure) <br>
