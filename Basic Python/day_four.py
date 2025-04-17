@@ -127,10 +127,8 @@ def part_two():
 #  Practice control flow - Fizz Buzz
 #===============================================================================
 def part_three():
-    def get_trigger():
-        word = input("What text do you want to replace the numbers with?\n")
-        number = get_number(f"Which number should I {word} on?\n")
-        return trigger_func(number, word)
+    def trigger_func(trigger_value, text):
+        return lambda a: text if a % trigger_value == 0 else ''
 
     def get_number(request:str)->int:
         while True:
@@ -141,8 +139,10 @@ def part_three():
             except ValueError:
                 print("Invalid number. Try again.")
 
-    def trigger_func(trigger_value, text):
-        return lambda a: text if a % trigger_value == 0 else ''
+    def get_trigger():
+        word = input("What text do you want to replace the numbers with?\n")
+        number = get_number(f"Which number should I {word} on?\n")
+        return trigger_func(number, word)
 
     print("Welcome to FizzBuzz+.\nHere you can define as many substitutions as "
           "you want.")
