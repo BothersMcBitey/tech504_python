@@ -1,6 +1,14 @@
 import random
-from http.client import responses
 
+def get_yesno(question:str)->bool:
+    while True:
+        response = input(f"{question} (y/n)").lower()
+        if response == "y":
+            return True
+        elif response == "n":
+            return False
+        else:
+            print("Invalid response. Try again.")
 
 #===============================================================================
 #  Learn if statement - Print movie rating meaning
@@ -133,17 +141,6 @@ def part_three():
             except ValueError:
                 print("Invalid number. Try again.")
 
-    def want_more()->bool:
-        while True:
-            response = input(f"Trigger {len(triggers)} defined. Would you like to "
-                             f"make another? (y/n)\n").lower()
-            if response == "n":
-                return False
-            if response == 'y':
-                return True
-            else:
-                print(f"{response} is not a valid command. Try again.")
-
     def trigger_func(trigger_value, text):
         return lambda a: text if a % trigger_value == 0 else ''
 
@@ -154,7 +151,8 @@ def part_three():
     while make_more:
         print(f"Let's define trigger {len(triggers)+1}.")
         triggers.append(get_trigger())
-        make_more = want_more()
+        make_more = get_yesno(f"Trigger {len(triggers)} defined. Would you like"
+                              f" to make another?")
     stop = get_number("Which number do I stop at?\n")
     for i in range(1,stop + 1):
         out = ''
@@ -201,18 +199,9 @@ def part_four():
             print("No one younger than 18 may see an 18 film in a cinema.")
         else:
             print("This is not a correct rating, please use universal, pg, 12, 12a, 15, 18")
-        while True:
-            response = input("Would you like to check another movie rating? (y/n)").lower()
-            if response == "y":
-                keep_going = True
-                break
-            elif response == "n":
-                keep_going = False
-                break
-            else:
-                print("Invalid response. Try again.")
+        keep_going = get_yesno("Would you like to check another movie rating?")
 
 #part_one()
 #part_two()
-#part_three()
-part_four()
+part_three()
+#part_four()
