@@ -21,9 +21,9 @@ def part_one():
     shopping_list.pop()
     print(shopping_list)
 
-    #===============================================================================
+    #===========================================================================
     #  Mix data
-    #===============================================================================
+    #===========================================================================
     name = input("gimme yer name: ")
     age = int(input("gimme yer age: "))
     dob = input("gimme yer DoB: ")
@@ -37,9 +37,9 @@ def part_one():
     user_details_list.append(height)
     print(user_details_list[3])
 
-    #===============================================================================
+    #===========================================================================
     #  Test you can slice lists
-    #===============================================================================
+    #===========================================================================
     mixture = [1, 2, 3,"one", "two", "three"]
     print(mixture)
     print(mixture[1:2])
@@ -48,9 +48,9 @@ def part_one():
     print(mixture[::2])
     print(mixture[-1:-3:-1])
 
-    #===============================================================================
+    #===========================================================================
     #  Learn tuples - finish the "Stranded on a Desert Island" game
-    #===============================================================================
+    #===========================================================================
     # "Stranded on a Desert Island" game
     # Rationale: Practice tuples
     # Type of exercise: Finish the code
@@ -70,9 +70,11 @@ def part_one():
     essentials_tuple += (essential_item4,)
     print("Here are your items as a tuple (with the 4th item added):", essentials_tuple)
 
-    #===============================================================================
+    #===========================================================================
     #  Working with dictionaries
-    #===============================================================================
+    #===========================================================================
+
+
     student_1 = {
         "name": "susan",
         "stream": "tech",
@@ -98,11 +100,9 @@ def part_one():
 # Outcome (By doing this you should): Practice using lists and dictionaries
 # Script should act like a waiter at a restaurant taking orders
 def part_two():
-    starters = [
-        {"name": "crackers", "price" : 1.50},
-        {"name": "samosas", "price" : 4.90},
-        {"name": "soup of the day", "price" : 5.0}
-        ]
+    starters = [{"name": "crackers", "price" : 1.50},
+                {"name": "samosas", "price" : 4.90},
+                {"name": "soup of the day", "price" : 5.0}]
     mains = [
         {"name": "big ol\' roast", "price" : 15.10},
         {"name": "fish \'n\' chips", "price" : 7.85},
@@ -133,11 +133,14 @@ def part_two():
             print(f"Please choose a {course}:")
             for x in menu[course]:
                 print("\t", x["name"].capitalize(), f"\t£{x["price"]:.2f}")
+
             selection = input("Enter choice: ").capitalize()
             while not is_on_menu(selection, menu[course]):
                 selection = input("Invalid selection. Enter choice: ").capitalize()
+
             customer_order_list.extend(
-                [i for i in menu[course] if i["name"].capitalize() == selection])
+                [i for i in menu[course] if i["name"].capitalize() == selection]
+            )
 
             response = ""
             response_valid = False

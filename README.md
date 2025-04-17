@@ -33,7 +33,7 @@ __also bold__
 
 ## Part 3: Embedding
 
-![a picture](img/eat_the_rich.jpg)
+![a picture](Learn_Markdown/img/eat_the_rich.jpg)
 
 Where do you want to go? <br>
 [back to part 2](#part-2-structure) <br>
