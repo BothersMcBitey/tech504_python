@@ -3,9 +3,9 @@ import random
 def get_yesno(question:str)->bool:
     while True:
         response = input(f"{question} (y/n)").lower()
-        if response == "y":
+        if response == "y" or "yes":
             return True
-        elif response == "n":
+        elif response == "n" or "no":
             return False
         else:
             print("Invalid response. Try again.")
@@ -83,6 +83,7 @@ def part_one():
     #  Use 'while loops' with an int
     # ==========================================================================
     user_prompt = True
+    age = 0
     while user_prompt:
         age = input("What is your age? ")
         if age.isdigit() and int(age) < 118:
