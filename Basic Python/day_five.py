@@ -59,7 +59,7 @@ else:
     print("Usage: json2yaml.py <source_file.json> <target_file.yaml>")
 # 1. Convert the JSON to YAML - use yaml library
 with open(sys.argv[1], "r") as f, open(sys.argv[2], "w+") as o:
-    servers = json.loads(f.read())#json.JSONDecoder().decode(f.read())
+    servers = json.loads(f.read())
     yaml.dump(servers, o)
 
 # ===============================================================================
