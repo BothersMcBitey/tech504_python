@@ -1,23 +1,32 @@
 #!/bin/bash
+# built for Ubuntu 2020.04
+# Works as of 2025/04/01
+
+read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+fi
 
 # update packages
 echo "UPDATING PACKAGES ======================================================="
-apt update
+sudo apt update
 echo "UPGRADING PACKAGES ======================================================"
-apt upgrade -y
+sudo apt upgrade -y
 
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
-apt install nginx -y
-systemctl enable nginx
-bash -c "curl -fsSL https://deb.nodesource.com/setup_20.x | bash -"
-apt install nodejs -y
-apt install unzip
+sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo bash -c "curl -fsSL https://deb.nodesource.com/setup_20.x | bash -"
+sudo apt install nodejs -y
+sudo apt install unzip -y
 
 # pull app code
 echo "GETTING CODE FROM REMOTE ================================================"
 wget https://github.com/BothersMcBitey/sparta_test_app/archive/refs/heads/main.zip
-unzip main.zip
+unzip -q main.zip
 
 # install sparta app
 echo "INSTALLING APP =========================================================="
@@ -26,4 +35,4 @@ npm install
 
 # Run App
 echo "STARTING APP ============================================================"
-npm start
+npm start &> ./sparta_app_log.log &
