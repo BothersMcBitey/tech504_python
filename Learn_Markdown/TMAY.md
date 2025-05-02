@@ -28,3 +28,16 @@ Practice your TMAY with friends, family, colleagues, etc. Get a range of feedbac
 - You might want to change the points or order when you deliver
 - You might spontaneously add or remove parts – how does that affect its effectiveness?
 - It’s good to get used to talking about yourself positively!
+
+
+
+
+Moveaway from ML, but data piopelines and stuff fun so devops
+
+
+Don't have to mention everything you've done, just some of it
+
+
+
+
+I'm playing a character called Callum who just happens to have a similar life to me

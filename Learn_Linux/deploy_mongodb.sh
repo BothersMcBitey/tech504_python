@@ -11,24 +11,25 @@ fi
 
 echo "update linux packages ========================================================"
 sudo apt update
-sudo apt upgrade -y # might be an issue with confirmation dialogue
+sudo DEBIAN_FRONTEND=noninteractive apt -yq upgrade # might be an issue with confirmation dialogue
 
 echo "install dependencies ========================================================="
-sudo apt install gnupg -y
-sudo apt install curl -y
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install gnupg
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install curl
 
 
 echo "install mongodb 7.0.6 ======================================================="
 echo "import mongodb public key ======================================================="
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --yes \
-   --dearmor
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo DEBIAN_FRONTEND=noninteractive gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --yes --dearmor
+
 echo "create the file list ======================================================="
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo DEBIAN_FRONTEND=noninteractive tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
 echo  "reload package database ======================================================="
-sudo apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get update
+
 echo "install community server ======================================================="
-sudo apt-get install -y \
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install \
    mongodb-org=7.0.6 \
    mongodb-org-database=7.0.6 \
    mongodb-org-server=7.0.6 \
@@ -40,7 +41,7 @@ sudo apt-get install -y \
 
 echo "configure mongodb ============================================================"
 echo "change bindIp from 127.0.0.1 (local host) to 0.0.0.0 (everyone)"
-sudo sed -ri -E "s/([0-9]+\.)+[0-9]+/0.0.0.0/"  /etc/mongod.conf
+sudo sed -ri -E "s/bindIp:.*([0-9]+\.)+[0-9]+/bindIp: 0.0.0.0/"  /etc/mongod.conf
 
 echo "start mongodb ================================================================"
 sudo systemctl start mongod

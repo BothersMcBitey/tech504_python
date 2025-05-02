@@ -6,6 +6,7 @@ read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it?
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
+    echo "Exiting script."
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 
@@ -13,12 +14,15 @@ fi
 echo "UPDATING PACKAGES ======================================================="
 sudo apt update
 echo "UPGRADING PACKAGES ======================================================"
-sudo apt upgrade -y
+sudo DEBIAN_FRONTEND=noninteractive apt -yq upgrade
 
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
 sudo apt install nginx -y
+sudo sed -ri 's~^[^#]\s*try_files.*~                proxy_pass         "http://127.0.0.1:3000";~' /etc/nginx/GETPATHWAY
+nginx -s reload
 sudo systemctl enable nginx
+
 sudo bash -c "curl -fsSL https://deb.nodesource.com/setup_20.x | bash -"
 sudo apt install nodejs -y
 sudo apt install unzip -y
@@ -26,7 +30,8 @@ sudo apt install unzip -y
 # pull app code
 echo "GETTING CODE FROM REMOTE ================================================"
 wget https://github.com/BothersMcBitey/sparta_test_app/archive/refs/heads/main.zip
-unzip -q main.zip
+unzip -qu main.zip
+sudo rm main.zip
 
 # install sparta app
 echo "INSTALLING APP =========================================================="
@@ -35,8 +40,8 @@ npm install
 
 # Install pm2
 echo "INSTALLING PM2 =========================================================="
-npm install pm2@latest -g
+sudo npm install pm2@latest -g
 
 # Run App
 echo "STARTING APP ============================================================"
-pm2 start [FILE.js]  &> ./sparta_app_log.log &
+pm2 start app.js --name sparta_app
