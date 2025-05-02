@@ -9,25 +9,25 @@ then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 
-# update linux packages ========================================================
+echo "update linux packages ========================================================"
 sudo apt update
 sudo apt upgrade -y # might be an issue with confirmation dialogue
 
-# install dependencies =========================================================
+echo "install dependencies ========================================================="
 sudo apt install gnupg -y
 sudo apt install curl -y
 
 
-## install mongodb 7.0.6 =======================================================
-# import mongodb public key
+echo "install mongodb 7.0.6 ======================================================="
+echo "import mongodb public key ======================================================="
 curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --yes \
    --dearmor
-# create the file list
+echo "create the file list ======================================================="
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-# reload package database
+echo  "reload package database ======================================================="
 sudo apt-get update
-# install community server
+echo "install community server ======================================================="
 sudo apt-get install -y \
    mongodb-org=7.0.6 \
    mongodb-org-database=7.0.6 \
@@ -38,12 +38,12 @@ sudo apt-get install -y \
    mongodb-org-tools=7.0.6 \
    mongodb-org-database-tools-extra=7.0.6
 
-# configure mongodb ============================================================
-# change bindIp from 127.0.0.1 (local host) to 0.0.0.0 (everyone)
+echo "configure mongodb ============================================================"
+echo "change bindIp from 127.0.0.1 (local host) to 0.0.0.0 (everyone)"
 sudo sed -ri -E "s/([0-9]+\.)+[0-9]+/0.0.0.0/"  /etc/mongod.conf
 
-# start mongodb ================================================================
+echo "start mongodb ================================================================"
 sudo systemctl start mongod
 
-# enable mongodb ===============================================================
+echo "enable mongodb ==============================================================="
 sudo systemctl enable mongod

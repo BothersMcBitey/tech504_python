@@ -33,6 +33,10 @@ echo "INSTALLING APP =========================================================="
 cd sparta_test_app-main/app/
 npm install
 
+# Install pm2
+echo "INSTALLING PM2 =========================================================="
+npm install pm2@latest -g
+
 # Run App
 echo "STARTING APP ============================================================"
-npm start &> ./sparta_app_log.log &
+pm2 start [FILE.js]  &> ./sparta_app_log.log &
