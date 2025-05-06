@@ -10,3 +10,4 @@ A monolith is a big ol system running everything on one machine. There may be mu
  - The reverse proxy can do load-balancing
  - It can handle caching as well
  - Can handle SSL encrryption and user authentication
+

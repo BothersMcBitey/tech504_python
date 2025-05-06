@@ -1,13 +1,13 @@
 #!/bin/bash
 # built and tested for Ubuntu 2022.04
-# Works as of 2025/04/01
+# Works as of 2025/05/06
 
-read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-fi
+#read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
+#echo    # (optional) move to a new line
+#if [[ ! $REPLY =~ ^[Yy]$ ]]
+#then
+#    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+#fi
 
 echo "update linux packages ========================================================"
 sudo apt update

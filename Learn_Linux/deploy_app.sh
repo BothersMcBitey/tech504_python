@@ -1,14 +1,14 @@
 #!/bin/bash
-# built for Ubuntu 2020.04
-# Works as of 2025/04/01
+# built for Ubuntu 2022.04
+# Works as of 2025/05/06
 
-read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    echo "Exiting script."
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-fi
+#read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
+#echo    # (optional) move to a new line
+#if [[ ! $REPLY =~ ^[Yy]$ ]]
+#then
+#    echo "Exiting script."
+#    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+#fi
 
 # update packages
 echo "UPDATING PACKAGES ======================================================="
@@ -16,10 +16,15 @@ sudo apt update
 echo "UPGRADING PACKAGES ======================================================"
 sudo DEBIAN_FRONTEND=noninteractive apt -yq upgrade
 
+#set env vars
+echo "Setting ENVIROMENT VARIABLES ============================================"
+echo "export DB_HOST=mongodb://10.204.0.6:27017/posts" >> ~/.bashrc
+source ~/.bashrc
+
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
 sudo apt install nginx -y
-sudo sed -ri 's~^[^#]\s*try_files.*~                proxy_pass         "http://127.0.0.1:3000";~' /etc/nginx/GETPATHWAY
+sudo sed -ri 's~^[^#]\s*try_files.*~                proxy_pass         "http://127.0.0.1:3000";~' /etc/nginx/sites-available/default
 nginx -s reload
 sudo systemctl enable nginx
 
