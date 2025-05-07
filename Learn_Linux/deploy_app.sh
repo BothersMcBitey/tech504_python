@@ -15,7 +15,7 @@ export DB_HOST=mongodb://10.204.0.8:27017/posts
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
 sudo apt install nginx -y
-sudo sed -ri 's~^[^#]\s*try_files.*~                proxy_pass         "http://127.0.0.1:3000";~' /etc/nginx/sites-available/default
+sudo sed -ri 's~^[^#]\s*try_files.*~proxy_pass "http://127.0.0.1:3000";~' /etc/nginx/sites-available/default
 nginx -s reload
 sudo systemctl enable nginx
 
