@@ -1,14 +1,6 @@
 #!/bin/bash
 # built for Ubuntu 2022.04
-# Works as of 2025/05/06
-
-#read -p "WARNING: THIS SCRIPT USES ROOT ACCESS. Are you sure you want to run it? " -n 1 -r
-#echo    # (optional) move to a new line
-#if [[ ! $REPLY =~ ^[Yy]$ ]]
-#then
-#    echo "Exiting script."
-#    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-#fi
+# Works as of 2025/05/07
 
 # update packages
 echo "UPDATING PACKAGES ======================================================="
@@ -17,9 +9,8 @@ echo "UPGRADING PACKAGES ======================================================"
 sudo DEBIAN_FRONTEND=noninteractive apt -yq upgrade
 
 #set env vars
-echo "Setting ENVIROMENT VARIABLES ============================================"
-echo "export DB_HOST=mongodb://10.204.0.6:27017/posts" >> ~/.bashrc
-source ~/.bashrc
+echo "SETTING ENVIROMENT VARIABLES ============================================"
+export DB_HOST=mongodb://10.204.0.8:27017/posts
 
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
@@ -50,3 +41,4 @@ sudo npm install pm2@latest -g
 # Run App
 echo "STARTING APP ============================================================"
 pm2 start app.js --name sparta_app
+node seeds/seed.js
