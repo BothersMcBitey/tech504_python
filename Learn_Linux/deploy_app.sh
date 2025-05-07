@@ -1,5 +1,5 @@
 #!/bin/bash
-# built for Ubuntu 2022.04
+# built for Ubuntu 2020.04
 # Works as of 2025/05/07
 
 # update packages
