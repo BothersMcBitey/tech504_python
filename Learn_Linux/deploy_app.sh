@@ -42,3 +42,9 @@ sudo npm install pm2@latest -g
 echo "STARTING APP ============================================================"
 pm2 start app.js --name sparta_app
 node seeds/seed.js
+
+
+# Auto boot from image
+export DB_HOST=mongodb://10.204.0.8:27017/posts
+cd sparta_test_app-main/app/
+pm2 start app.js --name sparta_app

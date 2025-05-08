@@ -29,15 +29,16 @@ Practice your TMAY with friends, family, colleagues, etc. Get a range of feedbac
 - You might spontaneously add or remove parts – how does that affect its effectiveness?
 - It’s good to get used to talking about yourself positively!
 
-
-
-
-Moveaway from ML, but data piopelines and stuff fun so devops
-
-
 Don't have to mention everything you've done, just some of it
 
+## Tell Me About Yourself
 
+    I graduated from Southampton Uni with an MEng in Comp Sci, then spent 5 years as a postgrad researching ML text-to-speech.
 
+    Chose to leave academia; years working on something with a tiny impact in research, v hours writing a script that instantly affects sometimes thousands of people
 
-I'm playing a character called Callum who just happens to have a similar life to me
+    After that I wanted to diversify. A lot of research work required automating data handling, moving stuff across servers, etc - so DevOps seemed like a good option
+
+    In my free time: Archery coaching, amateur theatre, writing music, brewing, dnd & ttrpgs, making games, boardgames, making stupid side-projects
+
+    in a few years: I wouldn't say I have a plan, but I'd like to be in a position to (in a prfoessional sense) be able to potentially mentor newer/ junior team members, and also to be in a place to put down roots in the community
