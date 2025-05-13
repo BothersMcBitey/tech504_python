@@ -51,7 +51,9 @@ We start in a custom VPC (virtual private cloud). The VPC has it's own CIDR bloc
 
 To set up the database in the private subnet, use an image of the db VM. During the VM creation we select VPC in the network settings. We need to set up network tags, so we can later set firewall rules to allow the traffic we want (firewall rules are set at the VPC level). We also need to set up a way to access the machine remotely - security (on VM creation) select "Control VM access through IAM permissions".
 
+Firewall rules are set up like this: Target tag (e.g. db-server) and Source tag (e.g. http-server) (This can be done via tags or IP ranges). You also need to specify the protocol (TCP) and the port (27017 is std for mongodb)
 
+Next we make an App VM in the public subnet.
 
 Some resources:
  - https://medium.com/google-cloud/best-practices-for-creating-secure-private-gcp-vm-instance-6f0872f34bb
