@@ -33,12 +33,15 @@ Don't have to mention everything you've done, just some of it
 
 ## Tell Me About Yourself
 
-    I graduated from Southampton Uni with an MEng in Comp Sci, then spent 5 years as a postgrad researching ML text-to-speech.
+I graduated from Southampton Uni with an MEng in Comp Sci, then spent 5 years as a postgrad researching ML text-to-speech.
 
-    Chose to leave academia; years working on something with a tiny impact in research, v hours writing a script that instantly affects sometimes thousands of people
+Chose to leave academia; years working on something with a tiny impact in research, v hours writing a script that instantly affects sometimes thousands of people
 
-    After that I wanted to diversify. A lot of research work required automating data handling, moving stuff across servers, etc - so DevOps seemed like a good option
+After that I wanted to diversify. A lot of research work required automating data handling, moving stuff across servers, etc - so DevOps seemed like a good option
 
-    In my free time: Archery coaching, amateur theatre, writing music, brewing, dnd & ttrpgs, making games, boardgames, making stupid side-projects
+In my free time: Archery coaching, amateur theatre. Maybe also writing music, brewing, dnd & ttrpgs, making games, boardgames, making stupid side-projects
 
-    in a few years: I wouldn't say I have a plan, but I'd like to be in a position to (in a prfoessional sense) be able to potentially mentor newer/ junior team members, and also to be in a place to put down roots in the community
+in a few years: I wouldn't say I have a plan, but I'd like to be in a position to (in a proffessional sense) be able to potentially mentor newer/ junior team members beause I really like teaching. Why? The feeling of guiding someone from complete novice to compenent is simialr to the satisfaction of fixing software issues, but better?
+
+and also to be in a place to put down roots in the community
+ - problem with this is "moving around a lot" can seem dosdgy. Also, just not super useful.
