@@ -1,5 +1,20 @@
 # General DevOps Notes
+### TOCs
+- [General DevOps Notes](#general-devops-notes)
+    - [TOCs](#tocs)
+  - [Actual notes](#actual-notes)
+    - [Random tools](#random-tools)
+    - [Monolith vs 2-Tier Architecture](#monolith-vs-2-tier-architecture)
+    - [Reverse Proxy](#reverse-proxy)
+    - [Images](#images)
+    - [Autoscaling](#autoscaling)
+    - [Connecting to Instance groups](#connecting-to-instance-groups)
+  - [Google Cloud Platform](#google-cloud-platform)
+    - [GCP Alert Management and Such](#gcp-alert-management-and-such)
+    - [GCP Autoscaling](#gcp-autoscaling)
+    - [GCP Database Security and Creating VPCs](#gcp-database-security-and-creating-vpcs)
 
+## Actual notes
 ### Random tools
 - ps aux shows all processes
 - printenv | sort shows all environment variables
@@ -16,7 +31,7 @@ A monolith is a big ol system running everything on one machine. There may be mu
    - Single external IP allows for a "friendly" url -> no port numbers
  - The reverse proxy can do load-balancing
  - It can handle caching as well
- - Can handle SSL encrryption and user authentication
+ - Can handle SSL encryption and user authentication
 
 ### Images
 A regular image just contains the data from the disk of a system. A machine image includes extra info about the machine/vm including metadata

@@ -23,7 +23,7 @@ TIP: You don’t have to include everything! Just the headlines. You’ll have a
 
 Practice your TMAY with friends, family, colleagues, etc. Get a range of feedback, weigh it yourself, and refine as you go. From now on, you might get asked TMAY by anyone at any time!
 
-- DO NOT write a script and try to memorise it
+- DO NOT write a script and try to memorize it
 - You want it to flow naturally in conversation – writing is more likely to sound forced or constructed
 - You might want to change the points or order when you deliver
 - You might spontaneously add or remove parts – how does that affect its effectiveness?
@@ -41,7 +41,7 @@ After that I wanted to diversify. A lot of research work required automating dat
 
 In my free time: Archery coaching, amateur theatre. Maybe also writing music, brewing, dnd & ttrpgs, making games, boardgames, making stupid side-projects
 
-in a few years: I wouldn't say I have a plan, but I'd like to be in a position to (in a proffessional sense) be able to potentially mentor newer/ junior team members beause I really like teaching. Why? The feeling of guiding someone from complete novice to compenent is simialr to the satisfaction of fixing software issues, but better?
+in a few years: I wouldn't say I have a plan, but I'd like to be in a position to (in a professional sense) be able to potentially mentor newer/ junior team members because I really like teaching. Why? The feeling of guiding someone from complete novice to competent is similar to the satisfaction of fixing software issues, but better?
 
 and also to be in a place to put down roots in the community
- - problem with this is "moving around a lot" can seem dosdgy. Also, just not super useful.
+ - problem with this is "moving around a lot" can seem dodgy. Also, just not super useful.
