@@ -10,7 +10,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt -yq upgrade
 
 #set env vars
 echo "SETTING ENVIROMENT VARIABLES ============================================"
-export DB_HOST=mongodb://10.204.0.8:27017/posts
+export DB_HOST=mongodb://172.31.39.253:27017/posts
 
 # install dependencies
 echo "INSTALLING DEPENDENCIES ================================================="
@@ -45,6 +45,6 @@ node seeds/seed.js
 
 
 # Auto boot from image
-export DB_HOST=mongodb://10.204.0.8:27017/posts
+export DB_HOST=mongodb://172.31.39.253:27017/posts
 cd sparta_test_app-main/app/
 pm2 start app.js --name sparta_app

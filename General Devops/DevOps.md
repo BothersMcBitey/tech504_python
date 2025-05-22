@@ -2,19 +2,21 @@
 ### TOCs
 - [General DevOps Notes](#general-devops-notes)
     - [TOCs](#tocs)
-  - [Actual notes](#actual-notes)
+- [Actual notes](#actual-notes)
     - [Random tools](#random-tools)
     - [Monolith vs 2-Tier Architecture](#monolith-vs-2-tier-architecture)
     - [Reverse Proxy](#reverse-proxy)
     - [Images](#images)
     - [Autoscaling](#autoscaling)
     - [Connecting to Instance groups](#connecting-to-instance-groups)
-  - [Google Cloud Platform](#google-cloud-platform)
+- [Google Cloud Platform](#google-cloud-platform)
     - [GCP Alert Management and Such](#gcp-alert-management-and-such)
     - [GCP Autoscaling](#gcp-autoscaling)
     - [GCP Database Security and Creating VPCs](#gcp-database-security-and-creating-vpcs)
+- [AWS](#aws)
+    - [Making a VM](#making-a-vm)
 
-## Actual notes
+# Actual notes
 ### Random tools
 - ps aux shows all processes
 - printenv | sort shows all environment variables
@@ -46,7 +48,7 @@ There are two types of autoscaling:
 ### Connecting to Instance groups
 Bastion host - a very secure "hardened" machine that can be used as a "jumpbox" to remote into any machine on the internal network
 
-## Google Cloud Platform
+# Google Cloud Platform
 ### GCP Alert Management and Such
 GCP let's you set up alerts for a bunch of different metrics and with pretty details configuration. 
 
@@ -76,4 +78,16 @@ Some resources:
  - https://cloud.google.com/blog/products/identity-security/preventing-lateral-movement-in-google-compute-engine
  - https://cloud.google.com/iap/docs/using-tcp-forwarding#create-firewall-rule
  
-  
+
+# AWS
+It's similar to GCP, but the interface is somehow worse.
+
+### Making a VM
+Smash this button on the EC2 Dashboard
+![alt text](image.png)
+
+- This leads to a similar screen to GCP. Name instance, choose OS image, set instance type. 
+- In AWS you have to specify the access key pair for each vm. It's annoying
+- you then set up network permissions. For some reason, this has to be part of a 'security group', so you either need to use an existing group or make a new one.
+- then hidden at the bottom is the entry for userdata (startup script). Unlike in GCP, this is only run when the VM is built, not when it gets restarted.
+
